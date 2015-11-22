@@ -5,6 +5,7 @@
     "main": "app.js",
     "scripts": {
         "start": "node ./bin/www",
+        "stop": "pkill take1",
         "test": "mocha"
     },
     "private": true,
@@ -32,9 +33,14 @@
         "express": "~4.13.1",
         "jade": "~1.11.0",
         "morgan": "~1.6.1",
-        "serve-favicon": "~2.3.0"
+        "serve-favicon": "~2.3.0",
+        "underscore": "^1.8.3"
     },
     "devDependencies": {
-        "mocha": "^2.3.4"
+        "async": "^1.5.0",
+        "cheerio": "^0.19.0",
+        "mocha": "^2.3.4",
+        "request": "^2.67.0",
+        "underscore.string": "^3.2.2"
     }
 }
