@@ -1,0 +1,32 @@
+{
+    "name": "take1",
+    "version": "1.0.0",
+    "description": "Displays HighFidelity user-content in a socially-interconnected way.",
+    "main": "index.js",
+    "scripts": {
+        "test": "mocha"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/howard-stearns/take1.git"
+    },
+    "keywords": [
+        "HighFidelity",
+        "Facebook",
+        "VR",
+        "virtual reality",
+        "content"
+    ],
+    "author": "Howard Stearns",
+    "license": "Apache",
+    "bugs": {
+        "url": "https://github.com/howard-stearns/take1/issues"
+    },
+    "homepage": "https://github.com/howard-stearns/take1",
+    "dependencies": {
+        "express": "^4.13.3"
+    },
+    "devDependencies": {
+        "mocha": "^2.3.4"
+    }
+}
