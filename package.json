@@ -1,11 +1,13 @@
 {
     "name": "take1",
-    "version": "1.0.0",
+    "version": "0.0.0",
     "description": "Displays HighFidelity user-content in a socially-interconnected way.",
-    "main": "index.js",
+    "main": "app.js",
     "scripts": {
+        "start": "node ./bin/www",
         "test": "mocha"
     },
+    "private": true,
     "repository": {
         "type": "git",
         "url": "https://github.com/howard-stearns/take1.git"
@@ -24,7 +26,13 @@
     },
     "homepage": "https://github.com/howard-stearns/take1",
     "dependencies": {
-        "express": "^4.13.3"
+        "body-parser": "~1.13.2",
+        "cookie-parser": "~1.3.5",
+        "debug": "~2.2.0",
+        "express": "~4.13.1",
+        "jade": "~1.11.0",
+        "morgan": "~1.6.1",
+        "serve-favicon": "~2.3.0"
     },
     "devDependencies": {
         "mocha": "^2.3.4"
