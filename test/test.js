@@ -96,16 +96,59 @@ describe('server', function () {
     });
 
     // Tests
+    page('/favicon.ico', 'image/x-icon');
+    page('/stylesheets/style.css', 'text/css; charset=UTF-8');
+    page('/channel.html', 'text/html; charset=utf-8', function (data) {
+        it('contains script', function (done) {
+            var $ = cheerio.load(data.body);
+            assert.equal($('script').attr('src'), '//connect.facebook.net/en_US/all.js');
+            done();
+        });
+    });
+    page('/images/test.jpg', 'image/jpeg'); // FIXME: upload and then delete
+    page('/images/test2.jpg', 'image/jpeg'); // FIXME: upload and then delete    
     page('/', 'text/html; charset=utf-8', function (data) {
-        var $;
         it('is parseable as html', function (done) {
-            $ = cheerio.load(data.body);
-            assert.ok($('head').is('head'));
+            data.$ = cheerio.load(data.body);
+            assert.ok(data.$('head').is('head'));
             done();
         });
         it('has title', function () {
-            assert.equal($('title').text(), 'HighFidelity Content');
+            assert.equal(data.$('title').text(), 'HighFidelity Content');
         });
+        it('has items');
+        it('items have img');
+        it('items have domain');
+        it('items have submitter');
+        it('items have like');
+        it('items have comments');
     });
-    page('/favicon.ico', 'image/x-icon');
+    page('/snapshot/test', 'text/html; charset=utf-8', function (data) {
+        it('is parseable as html', function (done) {
+            data.$ = cheerio.load(data.body);
+            assert.ok(data.$('head').is('head'));
+            done();
+        });
+        it('has title', function () {
+            assert.equal(data.$('title').text(), 'HighFidelity Content');
+        });
+        it('has fb:app_id');
+        it('has og:url');
+        it('has og:title');
+        it('has og:image');
+        it('has og:site_name');
+        it('has og:description');
+        it('has og:type');
+        it('has article:section');
+        it('has article:author');
+        it('has article:published_time');
+        it('has article:modified_time');
+        it('has article:tag');
+        it('has items');
+        it('items have img');
+        it('items have domain');
+        it('items have submitter');
+        it('items have like');
+        it('items have comments');
+    });
 });

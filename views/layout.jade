@@ -3,5 +3,10 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    meta(name="copyright", content="(c) 2015 High Fidelity")
+    block meta
+    script var FBAPPID=#{fbAppId};
+    script(src="/javascripts/third-party.js")
   body
+    noscript JavaScript must be enabled in order for you to use #{title}. However, it seems JavaScript is either disabled or not supported by your browser. You must enable JavaScript by changing your browser options, then try again.
     block content

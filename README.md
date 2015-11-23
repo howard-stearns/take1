@@ -1,6 +1,7 @@
 # take1
 
 A prototype to:
+
 1. have a fun and easy way for people to show their content, and get others to visit.
 2. use out-of-band channels like Facebook to get recognition for High Fidelity as well as for the content creators.
 
@@ -22,18 +23,22 @@ A prototype to:
 * Authentication for uploads.
 * Upload six seconds of movie from HighFidelity. (Multiple images with server stitching into .gif using imagemagik or equivalent.)
 * Large numbers (billions):
-  ** Persist a pre-sorted list.
-  ** Paged display.
-  ** Infinite-scroller.
+  * Persist a pre-sorted list.
+  * Paged display.
+  * Infinite-scroller.
 * Style pages.
 * SEO using mnemonic URLs instead of GUIDs.
 * Ability to "like" from in-world.
 * Queryable database. (Prototype functionality is all direct-indexed key-value store, rather than traversable.)
 * Ability to display all such content for the same domain.
 * Creator info, and ability to display all domains (all content?) from this creator.
-* Uploader provides canned options of type and things to say about the picture. (Must work from hand controller.)
-* Ability to visit related content from in-world. (By creator, by domain, by type)
-* Identity separate from location: handles being moved within world, and same object appearing in multiple worlds.
+* Uploader/take1 button takes description from keyboard
+* Uploader/take1 button takes description by voice
+* Uploader/take1 button takes canned options of type and things to say about the picture.
+* Ability to visit related content from in-world. (By creator, by domain, by words in description)
+* Identity separate from location to handle being moved within world.
+* Identity by content to handle same object appearing in multiple worlds.
+
 
 
 

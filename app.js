@@ -20,12 +20,15 @@ var bodyParser = require('body-parser');
 var _ = require('underscore');
 
 var routes = require('./routes/index');
+//routes.configure({db: path.join(__dirname, 'db')});
 
 var app = express();
 var isDev = app.get('env') === 'development';
 app.locals.pretty = isDev; // Tell template system whether to format HTML readably.
 app.locals.title = 'HighFidelity Content';
-process.title = 'take1';          // so we can kill the server with shell (pkill take1)
+app.locals.fbAppId = '234339356748266';  // FIXME: borrowed from ki1r0y dev env
+app.locals.oneYearSeconds = 60 * 60 * 24 * 365;          // W3C recommends not aging more than a year. 
+app.locals.oneYearMs = app.locals.oneYearSeconds * 1000; // Express/connect time is in milliseconds (as for node generalprocess.title = 'take1';          // so we can kill the server with shell (pkill take1)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

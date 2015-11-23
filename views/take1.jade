@@ -1,0 +1,26 @@
+extends layout
+
+block meta
+  meta(property="fb:app_id", content=fbAppId)
+  link(rel="canonical", href=snapshot.url)
+  meta(property="og:url", content=snapshot.url)
+  meta(property="og:title", content=snapshot.title)
+  meta(property="og:image", content=snapshot.thumbnailUrl)
+  meta(property="og:site_name", content=title)
+  meta(property="og:description", content=snapshot.description)
+  meta(property="og:type", content="article")
+  meta(property="article:author", content=snapshot.submitter)
+  meta(property="article:section", content=ogSection)
+  meta(property="article:published_time", content=new Date(snapshot.created).toISOString())
+  meta(property="article:modified_time", content=new Date(snapshot.timestamp).toISOString())
+  meta(property="article:expiration_time", content=new Date(expires).toISOString())
+  for tag in snapshot.nametags
+    meta(property="article:tag", content=tag)
+
+block content
+  h1= snapshot.title
+  include item.jade
+  h2 Other content:
+  for snapshot in snapshotItems
+    if snapshot.id != excludedId
+      include item.jade

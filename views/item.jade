@@ -1,0 +1,9 @@
+item
+  a(href=snapshot.location)
+    img(src="/images/" + snapshot.image)
+  submitter #{snapshot.submitter}
+  domain
+    a(href="hifi:" + snapshot.domainName) #{snapshot.domainName}
+  fb:like(href=snapshot.url, show_faces="false", share="true", send="false")
+  br
+  fb:comments(href=snapshot.url, notify="true")
