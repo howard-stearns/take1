@@ -40,7 +40,7 @@ function getByLikes(start, count, cb) {
 function completeSnapshot(snapshot) {
     var parsedUrl = url.parse(snapshot.location);
     snapshot.domainName = parsedUrl.host;
-    snapshot.url = 'http://www.ki1r0y.com/snapshot/' + snapshot.id; // fb:comments requires full url
+    snapshot.url = 'http://ki1r0y.com/snapshot/' + snapshot.id; // fb:comments requires full url
     return snapshot;
 }
 
@@ -50,6 +50,11 @@ router.get('/channel.html', function (req, res) {
                 'Cache-Control': 'max-age="' + req.app.locals.oneYearSeconds + '"',
                 Expires: new Date(Date.now() + req.app.locals.oneYearMs).toUTCString()});
     res.send('<script src="//connect.facebook.net/en_US/all.js"></script>');
+});
+
+router.get('/index.html', function (req, res, next) { // used by AWS load balancer health check
+    _.noop(req);
+    res.send("I'm here.");
 });
 
 router.get('/', function (req, res, next) {
@@ -69,7 +74,7 @@ router.get('/snapshot/:id', function (req, res, next) {
             // Stuff needed for open graph metadata, that might someday be in the snapshot itself:
             snapshot.title = snapshot.domainName + " content";
             snapshot.description = "Captured in HighFidelity VR by " + snapshot.submitter + ".";
-            snapshot.thumbnailUrl = '/images/' + snapshot.image;
+            snapshot.thumbnailUrl = 'http://ki1r0y.com/images/' + snapshot.image; // fb requries full url
             snapshot.created = snapshot.timestamp;
             // Stuff that we might change in the future to be different for different snapshots:
             snapshot.nametags = ['HighFidelity', 'VR', 'virtual reality'];

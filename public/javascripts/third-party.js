@@ -12,7 +12,7 @@ window.fbAsyncInit = function () {
         cookie: true, // enable cookies to allow the server to access the session
         xfbml: true  // parse XFBML
     };
-    app.channelUrl = '/channel.html';
+    app.channelUrl = '//ki1r0y.com/channel.html';
     console.log('FB init', app);
     FB.init(app);
     // Callbacks for Like and Comment.
